@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "687077485422",
+    "firebase_url": "https://roversapp-34624.firebaseio.com",
+    "project_id": "roversapp-34624",
+    "storage_bucket": "roversapp-34624.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:687077485422:android:d9c07e0185b45097816f7f",
+        "android_client_info": {
+          "package_name": "com.ankit.roversapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "687077485422-tvskgbpvs11k39cap2cere6b4g8n0pkm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ankit.roversapp",
+            "certificate_hash": "2291dd350ac2e9a71fba11dbff8919befc80f1b6"
+          }
+        },
+        {
+          "client_id": "687077485422-6j5jmi91m5fml9ojppom0f6t0do9i23u.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDkFlPC-YdVyfrXgfnaOM3NPZ7hk3KC0Sc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "687077485422-6j5jmi91m5fml9ojppom0f6t0do9i23u.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
