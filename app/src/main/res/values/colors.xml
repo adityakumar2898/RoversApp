@@ -29,4 +29,8 @@
     <color name="BlueGray100">#CFD8DC</color>
     <color name="button_color">#3c92cf</color>
     <color name="LoginButton">#289B65</color>
+    <color name="button_blue">#007af9</color>
+    <color name="dark_blue">#0148a4</color>
+    <color name="facebook">#4267B2</color>
+    <color name="google">#f14436</color>
 </resources>
