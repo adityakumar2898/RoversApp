@@ -1,29 +1,462 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MainActivity">
+    tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@color/colorPrimary"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true">
 
-    <Button
-        android:id="@+id/signOutBtn"
-        android:layout_width="wrap_content"
+        <Button
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:text="@string/menu"
+            android:textSize="20sp"
+            android:background="@android:color/transparent"/>
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginStart="5dp"
+            android:layout_weight="1"
+            android:paddingHorizontal="85sp"
+            android:paddingVertical="5sp"
+            android:text="@string/rover_app"
+            android:textColor="@color/Black"
+            android:textSize="25sp"/>
+
+    </LinearLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Sign Out"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        android:layout_below="@id/header"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="10dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <GridLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:columnCount="2"
+            android:rowCount="15">
+
+            <Button
+                android:id="@+id/anp"
+                android:layout_height="130dp"
+                android:layout_width="190dp"
+                android:layout_gravity="center"
+                android:text="@string/andhra_pradesh"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="10dp"
+                android:background="@drawable/anp"/>
+
+            <Button
+                android:id="@+id/arp"
+                android:layout_height="130dp"
+                android:layout_width="190dp"
+                android:layout_gravity="center"
+                android:text="@string/arunachal_pradesh"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="10dp"
+                android:background="@drawable/arp"/>
+
+            <Button
+                android:id="@+id/asm"
+                android:layout_height="130dp"
+                android:layout_width="190dp"
+                android:layout_gravity="center"
+                android:text="@string/assam"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/asm"/>
+
+            <Button
+                android:id="@+id/bhr"
+                android:layout_height="130dp"
+                android:layout_width="190dp"
+                android:layout_gravity="center"
+                android:text="@string/bihar"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/bhr"/>
+
+            <Button
+                android:id="@+id/chh"
+                android:layout_height="130dp"
+                android:layout_width="190dp"
+                android:layout_gravity="center"
+                android:text="@string/chhattisgarh"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/chh"/>
+
+            <Button
+                android:id="@+id/goa"
+                android:layout_height="130dp"
+                android:layout_width="190dp"
+                android:layout_gravity="center"
+                android:text="@string/goa"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/goa"/>
+
+            <Button
+                android:id="@+id/guj"
+                android:layout_height="130dp"
+                android:layout_width="190dp"
+                android:layout_gravity="center"
+                android:text="@string/gujarat"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/guj"/>
+
+            <Button
+                android:id="@+id/har"
+                android:layout_height="130dp"
+                android:layout_width="190dp"
+                android:layout_gravity="center"
+                android:text="@string/haryana"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/har"/>
+
+            <Button
+                android:id="@+id/hip"
+                android:layout_height="130dp"
+                android:layout_width="190dp"
+                android:layout_gravity="center"
+                android:text="@string/himachal_pradesh"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/hip"/>
+
+            <Button
+                android:id="@+id/jnk"
+                android:layout_height="130dp"
+                android:layout_width="190dp"
+                android:layout_gravity="center"
+                android:text="@string/jammu_and_kashmir"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/jnk"/>
+
+            <Button
+                android:id="@+id/jha"
+                android:layout_height="130dp"
+                android:layout_width="190dp"
+                android:layout_gravity="center"
+                android:text="@string/jharkhand"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/jha"/>
+
+            <Button
+                android:id="@+id/kar"
+                android:layout_height="130dp"
+                android:layout_width="190dp"
+                android:layout_gravity="center"
+                android:text="@string/karnataka"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/kar"/>
+
+            <Button
+                android:id="@+id/ker"
+                android:layout_height="130dp"
+                android:layout_width="190dp"
+                android:layout_gravity="center"
+                android:text="@string/kerala"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/ker"/>
+
+            <Button
+                android:id="@+id/map"
+                android:layout_height="130dp"
+                android:layout_width="190dp"
+                android:layout_gravity="center"
+                android:text="@string/madhya_pradesh"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/map"/>
+
+            <Button
+                android:id="@+id/mah"
+                android:layout_height="130dp"
+                android:layout_width="190dp"
+                android:layout_gravity="center"
+                android:text="@string/maharashtra"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/mah"/>
+
+            <Button
+                android:id="@+id/man"
+                android:layout_height="130dp"
+                android:layout_width="190dp"
+                android:layout_gravity="center"
+                android:text="@string/manipur"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/man"/>
+
+            <Button
+                android:id="@+id/meg"
+                android:layout_height="130dp"
+                android:layout_width="190dp"
+                android:layout_gravity="center"
+                android:text="@string/meghalaya"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/meg"/>
+
+            <Button
+                android:id="@+id/miz"
+                android:layout_height="130dp"
+                android:layout_width="190dp"
+                android:layout_gravity="center"
+                android:text="@string/mizoram"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/miz"/>
+
+            <Button
+                android:id="@+id/nag"
+                android:layout_height="130dp"
+                android:layout_width="190dp"
+                android:layout_gravity="center"
+                android:text="@string/nagaland"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/nag"/>
+
+            <Button
+                android:id="@+id/odi"
+                android:layout_height="130dp"
+                android:layout_width="190dp"
+                android:layout_gravity="center"
+                android:text="@string/odisha"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/odi"/>
+
+            <Button
+                android:id="@+id/pun"
+                android:layout_height="130dp"
+                android:layout_width="190dp"
+                android:layout_gravity="center"
+                android:text="@string/punjab"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/pun"/>
+
+            <Button
+                android:id="@+id/raj"
+                android:layout_height="130dp"
+                android:layout_width="190dp"
+                android:layout_gravity="center"
+                android:text="@string/rajasthan"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/raj"/>
+
+            <Button
+                android:id="@+id/sik"
+                android:layout_height="130dp"
+                android:layout_width="190dp"
+                android:layout_gravity="center"
+                android:text="@string/sikkim"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/sik"/>
+
+            <Button
+                android:id="@+id/tan"
+                android:layout_height="130dp"
+                android:layout_width="190dp"
+                android:layout_gravity="center"
+                android:text="@string/tamil_nadu"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/tan"/>
+
+            <Button
+                android:id="@+id/tel"
+                android:layout_height="130dp"
+                android:layout_width="190dp"
+                android:layout_gravity="center"
+                android:text="@string/telangana"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/tel"/>
+
+            <Button
+                android:id="@+id/tri"
+                android:layout_height="130dp"
+                android:layout_width="190dp"
+                android:layout_gravity="center"
+                android:text="@string/tripura"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/tri"/>
+
+            <Button
+                android:id="@+id/utp"
+                android:layout_height="130dp"
+                android:layout_width="190dp"
+                android:layout_gravity="center"
+                android:text="@string/uttar_pradesh"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/utp"/>
+
+            <Button
+                android:id="@+id/utt"
+                android:layout_height="130dp"
+                android:layout_width="190dp"
+                android:layout_gravity="center"
+                android:text="@string/uttarakhand"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/utt"/>
+
+            <Button
+                android:id="@+id/web"
+                android:layout_height="130dp"
+                android:layout_width="190dp"
+                android:layout_gravity="center"
+                android:text="@string/west_bengal"
+                android:textColor="@color/colorWhite"
+                android:textSize="15sp"
+                android:layout_marginBottom="5dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginStart="10dp"
+                android:layout_marginEnd="5dp"
+                android:background="@drawable/web"/>
+
+        </GridLayout>
+
+    </ScrollView>
+
+</RelativeLayout>
