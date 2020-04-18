@@ -13,19 +13,22 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
 
-public class RegistrationActivity extends AppCompatActivity implements View.OnTouchListener,View.OnClickListener  {
+public class RegistrationActivity extends AppCompatActivity implements View.OnClickListener  {
 
 
-    private EditText nameEdit,usernameEdit,emailEdit,phnNumberEdit,passwordEdit,confirmPaswordEdit;
-    private String nameString,usernameString,emailString,phnNumberString,passwordString,confirmPaswordString;
+    private EditText nameEditText, usernameEditText, emailEditText, phoneEditText, passwordEditText, confirmPasswordEditText;
+    private String name, username, email, phone, password, confirmPassword;
     private Button registerButton;
-    private TextView signin;
+    private TextView login;
     private Intent intent;
+
+    private ConstraintLayout parent;
 
     //Firebase
     private FirebaseAuth mAuth;
@@ -35,59 +38,71 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnTo
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registration);
 
-
-        nameEdit=(EditText)findViewById(R.id.regis_name_edit);
-        usernameEdit=(EditText)findViewById(R.id.regis_username_edit);
-        emailEdit=(EditText)findViewById(R.id.regis_email_edit);
-        phnNumberEdit=(EditText)findViewById(R.id.regis_phonenumber_edit);
-        passwordEdit=(EditText)findViewById(R.id.regis_password_edit);
-        confirmPaswordEdit=(EditText)findViewById(R.id.regis_confirmpassword_edit);
-        registerButton=(Button)findViewById(R.id.register_button);
-        signin=(TextView)findViewById(R.id.signin);
+        nameEditText = findViewById(R.id.nameEditText);
+        usernameEditText = findViewById(R.id.usernameEditText);
+        emailEditText = findViewById(R.id.emailEditText);
+        phoneEditText = findViewById(R.id.phoneEditText);
+        passwordEditText = findViewById(R.id.passEditText);
+        confirmPasswordEditText = findViewById(R.id.confPassEditText);
+        registerButton = findViewById(R.id.registerBtn);
+        login = findViewById(R.id.loginTextView);
+        parent = findViewById(R.id.parent);
 
         // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
 
-
         registerButton.setOnClickListener(this);
-        signin.setOnClickListener(this);
+        login.setOnClickListener(this);
+        parent.setOnTouchListener((v, e) -> {
+            hideKeyboard(v);
+            return false;
+        });
     }
 
     @Override
     public void onStart() {
         super.onStart();
+
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         //updateUI(currentUser);
     }
 
+    public void hideKeyboard(View view) {
+        if (getCurrentFocus() != null) {
+            InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+            if (imm != null) {
+                imm.hideSoftInputFromWindow(getCurrentFocus().getWindowToken(), 0);
+            }
+            parent.clearFocus();
+        }
+    }
+
     public void registerAction(View view) {
         gettingEditTextData();
-
 
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
         imm.hideSoftInputFromWindow(view.getWindowToken(), 0);
 
-
-        if (nameString.isEmpty() || usernameString.isEmpty() || emailString.isEmpty() || phnNumberString.isEmpty() || passwordString.isEmpty() || confirmPaswordString.isEmpty() ) {
+        if (name.isEmpty() || username.isEmpty() || email.isEmpty() || phone.isEmpty() || password.isEmpty() || confirmPassword.isEmpty() ) {
             Toast.makeText(this, "Enter All Details", Toast.LENGTH_LONG).show();
         }
-        else if(nameString.length()<3) {
+        else if(name.length()<3) {
             Toast.makeText(this, "Name should be minimum 3 alphabets long", Toast.LENGTH_LONG).show();
         }
-        else if(usernameString.length()<3) {
+        else if(username.length()<3) {
             Toast.makeText(this, "Username should be minimum 3 alphabets long", Toast.LENGTH_LONG).show();
         }
-        else if(phnNumberString.length()<10) {
+        else if(phone.length()<10) {
             Toast.makeText(this, "Phone Number should be of 10 digts", Toast.LENGTH_LONG).show();
 
         }
-        else if(!passwordString.equals(confirmPaswordString))
+        else if(!password.equals(confirmPassword))
         {
             Toast.makeText(this, "Password and Confirm Password do not match. Passwords are case sensitive", Toast.LENGTH_LONG).show();
         }
         else{
-            register(emailString,passwordString);
+            register(email,password);
         }
     }
 
@@ -98,7 +113,7 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnTo
                 mAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(RegistrationActivity.this, task2 -> {
                     if(task2.isSuccessful()) {
                         UserProfileChangeRequest request = new UserProfileChangeRequest.Builder()
-                                .setDisplayName(nameString).build();
+                                .setDisplayName(name).build();
 
                         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
                         if(user != null) {
@@ -129,26 +144,15 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnTo
     public void onClick(View view) {
 
         switch(view.getId()) {
-            case R.id.register_button:
+            case R.id.registerBtn:
                 registerAction(view);
                 break;
-            case R.id.signin:
+            case R.id.loginTextView:
                 login();
                 break;
             default:
                 Log.i("Error", "EditTextClicked: "+ view.getId());
          }
-
-//        if (usernameString.equals("") && passwordString.equals("")) {
-//            usernameEdit.setError("Please Enter Username");
-//            passwordEdit.setError("Please Enter Password");
-//        } else if (usernameString.equals("")) {
-//            usernameEdit.setError("Please Enter Username");
-//        } else if (passwordString.equals("")) {
-//            passwordEdit.setError("Please Enter Password");
-//        } else {
-//            login();
-//        }
     }
 
 
@@ -156,15 +160,13 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnTo
 
 
     //Getting EditText Data
-    public void gettingEditTextData()
-    {
-
-        nameString=nameEdit.getText().toString();
-        usernameString=usernameEdit.getText().toString();
-        emailString=emailEdit.getText().toString();
-        phnNumberString=phnNumberEdit.getText().toString();
-        passwordString=passwordEdit.getText().toString();
-        confirmPaswordString=confirmPaswordEdit.getText().toString();
+    public void gettingEditTextData() {
+        name = nameEditText.getText().toString();
+        username = usernameEditText.getText().toString();
+        email = emailEditText.getText().toString();
+        phone = phoneEditText.getText().toString();
+        password = passwordEditText.getText().toString();
+        confirmPassword = confirmPasswordEditText.getText().toString();
     }
 
 
@@ -174,20 +176,4 @@ public class RegistrationActivity extends AppCompatActivity implements View.OnTo
         startActivity(intent);
         finish();
     }
-
-    //OnTouch Events for EditTexts
-    @Override
-    public boolean onTouch(View view, MotionEvent motionEvent) {
-
-//        gettingEditTextData();
-//
-//
-//        if(usernameString.length()==0)
-//        {
-//            usernameEdit.setError("Please Enter Username");
-//        }
-//
-        return false;
-    }
-
 }

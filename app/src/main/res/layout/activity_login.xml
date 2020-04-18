@@ -99,18 +99,18 @@
         android:id="@+id/imageView"
         android:layout_width="150dp"
         android:layout_height="150dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/mobile_login"
         android:contentDescription="Login Image"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.475"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/mobile_login" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/login_button"
+        android:id="@+id/registerBtn"
         android:layout_width="250dp"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:layout_centerHorizontal="true"
         android:background="@drawable/login_btn_bg_selector"
         android:elevation="5dp"
@@ -133,7 +133,7 @@
         app:layout_constraintBottom_toTopOf="@+id/socialLogin"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_button" />
+        app:layout_constraintTop_toBottomOf="@+id/registerBtn" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/socialLogin"
@@ -142,7 +142,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/login_button">
+        app:layout_constraintTop_toBottomOf="@+id/registerBtn">
 
         <Button
             android:id="@+id/googleBtn"

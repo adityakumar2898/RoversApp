@@ -42,12 +42,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnTouchList
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE); //will hide the title
         setContentView(R.layout.activity_login);
-        getSupportActionBar().hide(); //hide the title bar
+//        getSupportActionBar().hide(); //hide the title bar
         //this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN); //show the activity in full screen
 
         emailEdit = findViewById(R.id.emailTextView);
         passwordEdit = findViewById(R.id.passwordTextView);
-        loginButton = findViewById(R.id.login_button);
+        loginButton = findViewById(R.id.registerBtn);
         facebookBtn = findViewById(R.id.facebookBtn);
         googleBtn = findViewById(R.id.googleBtn);
         signup = findViewById(R.id.signUp);
@@ -127,7 +127,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnTouchList
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.login_button:
+            case R.id.registerBtn:
                 gettingEditTextData();
 
                 if (!("".equals(emailString) && "".equals(passwordString))) {
