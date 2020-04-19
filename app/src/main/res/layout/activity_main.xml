@@ -7,28 +7,36 @@
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
 
-    <androidx.appcompat.widget.Toolbar
-        android:id="@+id/toolbar"
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="?attr/colorPrimary"
-        android:minHeight="?attr/actionBarSize"
         android:gravity="center">
 
-        <TextView
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Rover App"
-            android:textAlignment="center"
-            android:textColor="@color/colorWhite"
-            android:textSize="20sp" />
+            android:gravity="center"
+            android:background="?attr/colorPrimary">
 
-    </androidx.appcompat.widget.Toolbar>
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Rover App"
+                android:gravity="center"
+                android:layout_gravity="center"
+                android:textColor="@color/colorWhite"
+                android:textSize="20sp" />
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/toolbar"
+        android:layout_below="@id/appBarLayout"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true"
         android:layout_marginBottom="10dp">
